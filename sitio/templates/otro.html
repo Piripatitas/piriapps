@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir imágenes con descripción y ubicación</title>
+<style>
+         
+        /* Estilos CSS adicionales */
+        /* Resetear los estilos del navegador */
+        body, h1, h2, ul, li, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilo del encabezado */
+        header {
+            background-color: #a1a0ff;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        header .logo {
+            max-width: 100px; /* Ancho máximo de la imagen del logo */
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Formulario de carga */
+        #uploadForm {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        #uploadForm input[type="file"] {
+            margin-bottom: 10px;
+        }
+
+        #uploadForm input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #uploadForm button[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #uploadForm button[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        /* Mensaje de éxito */
+        .message-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border: 2px solid #333;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            display: none;
+            z-index: 999;
+        }
+
+        .message-container.show {
+            display: block;
+        }
+
+        .message-text {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .confirm-button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .confirm-button:hover {
+            background-color: #555;
+        }
+
+              #map {
+            height: 300px;
+        }
+        /* Estilo para el espacio adicional antes de la barra de herramientas */
+        .extra-space {
+            height: 56px; /* Altura típica de la barra de herramientas de un teléfono móvil */
+        }
+    </style>
+</head>
+<body>
+<header>
+    <img class="logo" src="{% static 'website/img/piripatitas.png' %}" alt="Tu Imagen">
+</header>
+
+{% include 'base.html' %} <!-- Incluir el contenido de base.html -->
+<div class="container">
+    <h1>Subir imágenes con descripción y ubicación</h1>
+    <form id="uploadForm">
+        <input type="file" id="imageInput" accept="image/*" required>
+        <input type="text" id="descriptionInput" placeholder="Descripción del animal" required>
+        <input type="text" id="locationInput" placeholder="Ubicación del animal" required>
+        <button id="getLocationButton" type="button">Obtener Ubicación Actual</button>
+        <div id="map"></div> <!-- Contenedor del mapa de Google Maps -->
+        <button type="submit">Subir</button>
+    </form>
+</div>
+
+<div class="extra-space"></div>
+
+<div id="messageContainer" class="message-container">
+    <p class="message-text">Imagen subida con éxito</p>
+    <button class="confirm-button" onclick="closeMessage()">Confirmar</button>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBk1kg5SLhjZitdGuItNUto6JAiQFcIl38&libraries=places&callback=initMap" async defer></script>
+<script src="{% static 'website/js/script.js' %}"></script>
+</body>
+</html>

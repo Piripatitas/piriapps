@@ -1,0 +1,75 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eff7ff; /* Fondo celeste */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0095f6;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #0095f6;
+    margin-right: 20px;
+}
+
+.profile-details form {
+    max-width: 400px;
+    width: 100%;
+}
+
+.profile-details label,
+.profile-details input,
+.profile-details textarea,
+.profile-details button {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.profile-details label {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.profile-details input,
+.profile-details textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.profile-details textarea {
+    resize: vertical;
+}
+
+.profile-details button {
+    background-color: #0095f6;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.profile-details button:hover {
+    background-color: #0077c0;
+}

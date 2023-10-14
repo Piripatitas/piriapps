@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Editar Perfil</title>
+    <link rel="stylesheet" href="{% static 'website/css/editar.css' %}">
+</head>
+<body>
+    <header>
+        <!-- Encabezado de la página -->
+        <h1>Editar Perfil</h1>
+    </header>
+    <div class="profile-container">
+        <div class="profile-image">
+            <!-- Mostrar la imagen de perfil actual -->
+            <img src="" alt="Imagen de perfil" id="current-profile-image">
+            
+            <!-- Vista previa de la nueva imagen de perfil -->
+            <div id="image-preview" style="display: none;">
+              <img src="" alt="Vista previa de imagen de perfil">
+            </div>
+            
+            <!-- Formulario para cargar una nueva imagen de perfil -->
+            <form id="uploadForm">
+                <label class="profile-picture-label" for="imageInput">Cambiar Foto de Perfil</label>
+                <input type="file" id="imageInput" name="imageInput" accept="image/*" style="display: none;">
+            </form>
+        </div>
+        <div class="profile-details">
+            <form>
+                <input type="text" id="usernameInput" placeholder="Nombre de usuario" required>
+                <input type="text" id="nameInput" placeholder="Nombre" required>
+                <input type="text" id="bioInput" placeholder="Biografía" required>
+                <button type="button" id="uploadButton">Subir</button>
+            </form>
+        </div>
+    </div>
+    {% include 'base.html' %} <!-- Incluir el contenido de base.html -->
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="{% static 'website/js/perfil.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eff7ff; /* Fondo celeste */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0095f6;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra tanto vertical como horizontalmente */
+    margin: 20px;
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #0095f6;
+    margin: 0 auto 20px; /* Centrar la imagen y agregar margen inferior */
+}
+
+.profile-details form {
+    max-width: 400px;
+    width: 100%;
+}
+
+.profile-picture-label {
+    background-color: #0095f6;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 20px; /* Espacio inferior para el botón */
+}
+
+.profile-details label,
+.profile-details input,
+.profile-details textarea,
+.profile-details button {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .profile-image img {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 10px;
+    }
+
+    .profile-details form {
+        max-width: 100%;
+    }
+
+    .profile-picture-label {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .profile-details label,
+    .profile-details input,
+    .profile-details textarea,
+    .profile-details button {
+        margin-bottom: 10px;
+    }
+}

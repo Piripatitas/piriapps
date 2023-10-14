@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tu título</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Tu archivo CSS -->
+</head>
+<body>
+  <div class="toolbar custom-toolbar">
+    <a href="inicio.html" class="icon">
+      <img src="{% static 'website/img/home.png' %}">
+    </a>
+    <a href="otro.html" class="icon">
+      <img src="{% static 'website/img/search.png' %}">
+    </a>
+    <a href="pagina3.html" class="icon">
+      <img src="{% static 'website/img/add.png' %}">
+    </a>
+    <a href="pagina4.html" class="icon">
+      <img src="{% static 'website/img/heart.png' %}">
+    </a>
+    <a href="usuario.html" class="icon">
+      <img src="{% static 'website/img/user.png' %}">
+    </a>
+  </div>
+
+  {% block content %}{% endblock %} <!-- Aquí se insertará el contenido específico de cada página -->
+</body>
+</html>

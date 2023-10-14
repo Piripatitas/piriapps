@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'website/css/toolbar.css' %}">
+    {% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="toolbar custom-toolbar">
+    <a href="inicio.html" class="icon">
+      <img src="{% static 'website/img/home.png' %}">
+    </a>
+    <a href="otro.html" class="icon">
+      <img src="{% static 'website/img/search.png' %}">
+    </a>
+    <a href="pagina3.html" class="icon">
+      <img src="{% static 'website/img/add.png' %}">
+    </a>
+    <a href="pagina4.html" class="icon">
+      <img src="{% static 'website/img/heart.png' %}">
+    </a>
+    <a href="usuario.html" class="icon">
+      <img src="{% static 'website/img/user.png' %}">
+    </a>
+  </div>
+
+    {% block content %}{% endblock %}
+
+    <script src="{% static 'website/js/toolbar.js' %}"></script>
+</body>
+</html>
+

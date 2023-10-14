@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Página</title>
+    <link rel="stylesheet" href="{% static 'tu-archivo-de-css.css' %}"> <!-- Asegúrate de incluir tu archivo CSS aquí -->
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+
+    <style>
+       /* Estilos generales que se aplicarán a todos los dispositivos */
+       body {
+           font-family: Arial, sans-serif; /* Cambia la tipografía a tu elección */
+       }
+
+       #contact-us {
+           background-color: #f0f0f0;
+           padding: 20px;
+           text-align: center;
+           position: relative; /* Para posicionar el logo */
+       }
+
+       #logo {
+           position: absolute;
+           top: 10px;
+           left: 10px;
+           max-width: 150px;
+       }
+
+       .section-heading {
+           margin-bottom: 20px;
+           font-size: 24px;
+           color: #333;
+       }
+
+       .pop-button h4 {
+           margin: 10px 0;
+       }
+
+       .pop-button a {
+           background-color: #007bff;
+           color: #fff;
+           padding: 10px 20px;
+           text-decoration: none;
+           border-radius: 5px;
+           display: inline-block;
+       }
+
+       #contact {
+           background-color: #fff;
+           padding: 20px;
+           border-radius: 5px;
+       }
+
+       .pop span {
+           cursor: pointer;
+           position: absolute;
+           top: 10px;
+           right: 10px;
+           font-size: 24px;
+       }
+
+       /* Media query para dispositivos con un ancho de pantalla máximo de 768px (típico de teléfonos) */
+       @media (max-width: 768px) {
+           /* Estilos específicos para dispositivos móviles */
+           #contact-us {
+               background-color: #e0e0e0;
+               padding: 10px;
+           }
+       }
+    </style>
+</head>
+<body>
+   <header>
+       <img id="logo" src="{% static 'website/img/piripatitas.png' %}" alt="Tu Logo">
+   </header>
+
+   <div id="contact-us">
+       <div class="container">
+           <div class="row">
+               <div class="col-md-12">
+                   <div class="section-heading">
+                       <h4>CONTÁCTANOS</h4>
+                       <div class="line-dec"></div>
+                       <p>PUEDE HACER SU SEGUIMIENTO DESDE AQUÍ.</p>
+                   </div>
+               </div>
+           </div>
+           <div class="row">
+               <div class="col-md-6 col-md-offset-3">
+                   <div class="pop">
+                       <span>✖</span>
+                       <div class="pop-button">
+                           <h4>ENVIA 000 PARA ENLAZAR DE GPS</h4>
+                           <h4>ENVIA 777 PARA CONTROL DE GPS</h4>
+                           <a href="sms:+595985425159">Enviar mensaje de texto</a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+
+   {% include 'base.html' %} <!-- Incluir el contenido de base.html -->
+
+   <footer>
+       <!-- Pie de página, si es necesario -->
+   </footer>
+</body>
+</html>

@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'website/css/styles.css' %}">
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="{% static 'website/js/form.js' %}"></script>
+    <title>Login System</title>
+</head>
+<body>
+    <div class="formContainer">
+        <h1>Ingrese sus Credenciales:</h1>
+        <input type="email" placeholder="email aquí" id="email"><br>
+        <input type="password" placeholder="contraseña aquí" id="password"><br>
+        <button onclick="signUp()" id="signUp">Registrarse</button>
+        <button onclick="signIn()" id="signIn">Iniciar Sesión</button>
+        <button onclick="signOut()" id="signOut">Cerrar Sesión</button>
+    </div>
+
+    <script>
+        // Configura la inicialización de Firebase
+        var firebaseConfig = {
+            // Coloca aquí tu configuración de Firebase
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        // Habilita la persistencia de la sesión en Firebase
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+            .then(function() {
+                // El tipo de persistencia se ha establecido correctamente
+            })
+            .catch(function(error) {
+                // Ocurrió un error al establecer el tipo de persistencia
+                console.log(error);
+            });
+
+        // Resto del código JavaScript para la autenticación
+        // ...
+        
+        // Verificar si hay un token de sesión guardado al cargar la página
+        window.onload = function () {
+            var sessionToken = getSessionToken();
+            if (sessionToken) {
+                // Si se encuentra un token de sesión, iniciar sesión automáticamente con el token guardado
+                firebase.auth().signInWithCustomToken(sessionToken)
+                    .then(() => {
+                        var email = firebase.auth().currentUser.email;
+                        window.location.replace("/inicio/"); // Redirigir al usuario a la página de inicio de Django
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            }
+
+            // Restaurar los valores de los campos de texto
+            var emailField = document.getElementById("email");
+            var passwordField = document.getElementById("password");
+
+            emailField.value = localStorage.getItem("emailValue");
+            passwordField.value = localStorage.getItem("passwordValue");
+        };
+    </script>
+</body>
+</html>
+

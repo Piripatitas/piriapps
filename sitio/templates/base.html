@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'website/css/toolbar.css' %}">
+    <link rel="stylesheet" href="{% static 'website/css/ig.css' %}">
+    <title>Barra de tareas</title>
+</head>
+<body>
+    <div class="toolbar custom-toolbar">
+        <a href="/inicio/" class="icon">
+            <img src="{% static 'website/img/home.png' %}">
+        </a>
+        <a href="/otro/" class="icon">
+            <img src="{% static 'website/img/add.png' %}">
+        </a>
+        <a href="/perritos/" class="icon">
+            <img src="{% static 'website/img/search.png' %}">
+        </a>
+        <a href="/gps/" class="icon">
+            <img src="{% static 'website/img/gps.png' %}">
+        </a>
+        <a href="/che/" class="icon">
+            <img src="{% static 'website/img/user.png' %}">
+        </a>
+    </div>
+
+    {% block content %}{% endblock %}
+
+    <script src="{% static 'website/js/toolbar.js' %}"></script>
+</body>
+</html>
